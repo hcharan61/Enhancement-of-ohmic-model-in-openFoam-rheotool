@@ -1,0 +1,169 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Website:  https://openfoam.org                  |
+|   \\  /    A nd           | Version:  9                                     |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     rheoEFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         1;
+
+deltaT          1e-4;
+
+writeControl    adjustableRunTime;
+
+writeInterval   .1;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  12;
+
+writeCompression compressed;
+
+timeFormat      general;
+
+timePrecision   10;
+
+graphFormat     raw;
+
+runTimeModifiable yes;
+
+adjustTimeStep on;
+
+maxCo          1.5;
+
+maxDeltaT      0.01;
+
+functions
+{
+   outputCd
+    {
+	 functionObjectLibs ("libutilityFunctionObjects.so");
+	 type coded;
+	 name calFfl;
+	 writeControl timeStep;
+         writeInterval      50;
+         enabled             yes;
+
+	 codeWrite
+	 #{
+ 
+          // Lookup/create variable 
+           const volScalarField& phiE = mesh().lookupObject<volScalarField>("phiE");
+           const volScalarField& psi_ = mesh().lookupObject<volScalarField>("psi");
+           const volVectorField& U = mesh().lookupObject<volVectorField>("U");
+           //const dictionary& constDict = mesh().lookupObject<IOdictionary>("constitutiveProperties");
+           //dimensionedScalar eta_ ( "viscosity", dimensionSet(1, -1, 1, 0, 0, 0, 0),0.001 );
+           const volScalarField& eta_ = mesh().lookupObject<volScalarField>("eta");
+           dimensionedScalar epsilonK_( "vacuumPermittivity", dimensionSet(-1, -3, 4, 0, 0, 2, 0),8.8541878176e-12 );
+           //dimensionedScalar V( "volume", dimensionSet(0, 3, 0, 0, 0, 0, 0),1e-18 );
+           dimensionedScalar D( "channelDepth", dimensionSet(0, 1, 0, 0, 0, 0, 0),33.5e-06 );
+           dimensionedScalar H( "channelWidth", dimensionSet(0, 1, 0, 0, 0, 0, 0),100e-06 );
+           volScalarField rhoE = -fvc::laplacian(epsilonK_*78.3*phiE)- fvc::laplacian(epsilonK_*78.3*psi_);
+           volScalarField Rae = mag(rhoE)*(phiE)*(0.64*D*D)*H/(eta_*(1e-09)*2.3e-03);//l^2 = 5.52e-06.Diffusion coeff=1e-09,d= 0.8D
+           scalarList list;         
+  
+           static autoPtr<volScalarField> RaeField;
+          if(!RaeField.valid())
+          {
+              RaeField.set
+              (
+                  new volScalarField
+                  (
+                      IOobject
+                      (
+                          "Rayleigh",
+                          mesh().time().timeName(),
+                          phiE.mesh(),
+                          IOobject::NO_READ,
+                          IOobject::AUTO_WRITE
+                      ),
+                      Rae
+                  )
+              );
+              
+          }
+          volScalarField& Rayleigh = RaeField();
+
+          Rayleigh.checkIn();
+
+          Rayleigh = Rae;
+          
+          //volScalarField rhoE = -fvc::laplacian(epsilonK_*78.3*psi_)-fvc::laplacian(epsilonK_*78.3*phiE);
+          static autoPtr<volScalarField> rhoEField;
+          if(!rhoEField.valid())
+          {
+              rhoEField.set
+              (
+                  new volScalarField
+                  (
+                      IOobject
+                      (
+                          "freeCharge",
+                          mesh().time().timeName(),
+                          phiE.mesh(),
+                          IOobject::NO_READ,
+                          IOobject::AUTO_WRITE
+                      ),
+                      rhoE
+                  )
+              );
+              
+          }
+          volScalarField& freeCharge = rhoEField();
+
+          freeCharge.checkIn();
+
+          freeCharge = rhoE;
+          
+          volScalarField gamma = 1.41421356237*mag(symm(fvc::grad(U)));
+                    
+  
+           static autoPtr<volScalarField> UField;
+          if(!UField.valid())
+          {
+              UField.set
+              (
+                  new volScalarField
+                  (
+                      IOobject
+                      (
+                          "shearRate",
+                          mesh().time().timeName(),
+                          U.mesh(),
+                          IOobject::NO_READ,
+                          IOobject::AUTO_WRITE
+                      ),
+                      gamma
+                  )
+              );
+              
+          }
+          volScalarField& shearRate = UField();
+
+          shearRate.checkIn();
+
+          shearRate = gamma; 
+          #};
+
+    }
+    
+ 
+}
