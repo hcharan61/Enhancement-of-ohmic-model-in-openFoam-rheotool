@@ -1,0 +1,1 @@
+../thermoModels/solidThermo/isotropic/isotropic.H

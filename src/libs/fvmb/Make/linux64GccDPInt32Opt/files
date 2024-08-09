@@ -1,0 +1,4 @@
+SOURCE += LMatrixs.C
+SOURCE += operators/blockOperators.C
+
+LIB = $(FOAM_USER_LIBBIN)/libfvmb

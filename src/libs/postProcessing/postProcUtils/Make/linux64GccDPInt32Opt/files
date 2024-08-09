@@ -1,0 +1,12 @@
+SOURCE += postProcUtils/ppUtil.C
+
+SOURCE += postProcUtils/calcJpatch/calcJpatch.C
+SOURCE += postProcUtils/calcBalance/calcBalance.C
+SOURCE += postProcUtils/calcWSS/calcWSS.C
+
+SOURCE += postProcUtils/none/none.C
+
+SOURCE += postProcUtilsInterface/ppUtilInterface.C
+
+
+LIB = $(FOAM_USER_LIBBIN)/libpostProcessingRheoTool

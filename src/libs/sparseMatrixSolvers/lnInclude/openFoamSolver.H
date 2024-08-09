@@ -1,0 +1,1 @@
+../segregated/openFoamSolver/openFoamSolver.H

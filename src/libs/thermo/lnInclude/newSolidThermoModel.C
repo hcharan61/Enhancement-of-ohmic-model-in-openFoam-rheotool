@@ -1,0 +1,1 @@
+../thermoModels/solidThermo/newSolidThermoModel.C

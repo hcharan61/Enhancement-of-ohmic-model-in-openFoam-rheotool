@@ -1,0 +1,41 @@
+SOURCE += sparseSolverBase.C
+
+SOURCE += segregated/sparseSolvers.C
+
+SOURCE += segregated/openFoamSolver/openFoamSolvers.C
+
+SOURCE += segregated/hypreSolver/hypreSolvers.C
+SOURCE += segregated/hypreSolver/solvers/HypreIJSolver.C
+SOURCE += segregated/hypreSolver/solvers/newHypreIJSolver.C
+SOURCE += segregated/hypreSolver/solvers/BiCGSTAB/hsBiCGSTAB.C
+SOURCE += segregated/hypreSolver/solvers/PCG/hsPCG.C
+SOURCE += segregated/hypreSolver/solvers/GMRES/hsGMRES.C
+SOURCE += segregated/hypreSolver/solvers/BoomerAMG/hsBoomerAMG.C
+
+SOURCE += segregated/hypreSolver/preconditioners/HypreIJPreconditioner.C
+SOURCE += segregated/hypreSolver/preconditioners/newHypreIJPreconditioner.C
+SOURCE += segregated/hypreSolver/preconditioners/none/none.C
+SOURCE += segregated/hypreSolver/preconditioners/Euclid/Euclid.C
+SOURCE += segregated/hypreSolver/preconditioners/BoomerAMG/hpBoomerAMG.C
+SOURCE += segregated/hypreSolver/preconditioners/ParaSails/ParaSails.C
+
+SOURCE += segregated/eigenSolver/eigenSolvers.C
+SOURCE += segregated/eigenSolver/solvers/EigenIterDirSolver.C
+SOURCE += segregated/eigenSolver/solvers/newEigenIterDirSolver.C
+SOURCE += segregated/eigenSolver/solvers/BiCGSTAB/eBiCGSTAB.C
+SOURCE += segregated/eigenSolver/solvers/GMRES/eGMRES.C
+SOURCE += segregated/eigenSolver/solvers/PCG/ePCG.C
+SOURCE += segregated/eigenSolver/solvers/SparseLU/eSparseLU.C
+
+SOURCE += segregated/petscSolver/petscSolvers.C
+
+SOURCE += coupled/BCs/regionCoupledAMIPolyPatch.C
+SOURCE += coupled/BCs/regionCoupledAMIPointPatch.C
+SOURCE += coupled/BCs/regionCoupledAMIFvPatch.C
+SOURCE += coupled/BCs/coupledT/coupledTFvPatchScalarField.C
+
+SOURCE += coupled/coupledSolver.C
+
+SOURCE += sparseMatrixSolvers.C
+ 
+LIB = $(FOAM_USER_LIBBIN)/libsparseMatrixSolvers

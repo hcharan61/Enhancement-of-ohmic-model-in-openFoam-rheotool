@@ -1,0 +1,19 @@
+SOURCE += solidParticle.C
+SOURCE += solidParticleIO.C
+
+SOURCE += externalForcingInterp/externalForcingInterp.C
+SOURCE += externalForcingInterp/BarycentricWeights/interpolationCellPointBary/makeInterpolationCellPointBary.C
+SOURCE += externalForcingInterp/BarycentricWeights/BarycentricWeights.C
+SOURCE += externalForcingInterp/Gradient/Gradient.C
+SOURCE += externalForcingInterp/Analytical/Analytical.C
+
+SOURCE += solidParticleCloud.C
+SOURCE += sPCloudInterface.C
+
+SOURCE += springModel/springModel.C
+SOURCE += springModel/MarkoSiggia/MarkoSiggia.C
+SOURCE += springModel/FENE/FENE.C
+SOURCE += springModel/CohenPade/CohenPade.C
+SOURCE += springModel/Hookean/Hookean.C
+
+LIB = $(FOAM_USER_LIBBIN)/libBDmolecule

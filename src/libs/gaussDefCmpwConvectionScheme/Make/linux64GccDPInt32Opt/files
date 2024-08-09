@@ -1,0 +1,4 @@
+SOURCE += gaussDefCmpwConvectionSchemes.C
+
+
+LIB = $(FOAM_USER_LIBBIN)/libgaussDefCmpwConvectionSchemes

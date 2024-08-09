@@ -1,0 +1,4 @@
+SOURCE += fluid/iCourantNo.C
+SOURCE += rheoMultiRegionFoam.C
+
+EXE = $(FOAM_USER_APPBIN)/rheoMultiRegionFoam

@@ -1,0 +1,52 @@
+SOURCE += constitutiveModel/constitutiveModel.C
+
+SOURCE += constitutiveEqs/constitutiveEq/constitutiveEq.C
+SOURCE += constitutiveEqs/constitutiveEq/newConstitutiveEq.C
+
+ SOURCE += constitutiveEqs/Oldroyd-B/Oldroyd_B.C
+ SOURCE += constitutiveEqs/Oldroyd-B/Oldroyd-BLog/Oldroyd_BLog.C
+ SOURCE += constitutiveEqs/Oldroyd-B/Oldroyd-BSqrt/Oldroyd_BSqrt.C
+ SOURCE += constitutiveEqs/Oldroyd-B/Oldroyd-BRootk/Oldroyd_BRootk.C
+ 
+ SOURCE += constitutiveEqs/Giesekus/Giesekus.C
+ SOURCE += constitutiveEqs/Giesekus/GiesekusLog/GiesekusLog.C
+
+ SOURCE += constitutiveEqs/WhiteMetznerCY/WhiteMetznerCY.C
+ SOURCE += constitutiveEqs/WhiteMetznerCY/WhiteMetznerCYLog/WhiteMetznerCYLog.C
+
+ SOURCE += constitutiveEqs/FENE-CR/FENE_CR.C
+ SOURCE += constitutiveEqs/FENE-CR/FENE-CRLog/FENE_CRLog.C
+
+ SOURCE += constitutiveEqs/FENE-P/FENE_P.C
+ SOURCE += constitutiveEqs/FENE-P/FENE-PLog/FENE_PLog.C
+ 
+ SOURCE += constitutiveEqs/PTT/PTT.C
+ SOURCE += constitutiveEqs/PTT/PTTLog/PTTLog.C
+ 
+ SOURCE += constitutiveEqs/Rolie-Poly/RoliePoly.C
+ SOURCE += constitutiveEqs/Rolie-Poly/Rolie-PolyLog/RoliePolyLog.C
+ 
+ SOURCE += constitutiveEqs/XPomPom/XPomPom.C
+ SOURCE += constitutiveEqs/XPomPom/XPomPomLog/XPomPomLog.C
+
+ SOURCE += constitutiveEqs/GNF/Newtonian/Newtonian.C
+ SOURCE += constitutiveEqs/GNF/CarreauYasuda/CarreauYasuda.C
+ SOURCE += constitutiveEqs/GNF/PowerLaw/PowerLaw.C
+ SOURCE += constitutiveEqs/GNF/HerschelBulkley/HerschelBulkley.C
+ SOURCE += constitutiveEqs/GNF/Casson/Casson.C
+
+ SOURCE += constitutiveEqs/multiMode/multiMode.C
+ 
+ SOURCE += constitutiveEqs/otherModels/Saramito/Saramito.C
+ SOURCE += constitutiveEqs/otherModels/Saramito/SaramitoLog/SaramitoLog.C
+ SOURCE += constitutiveEqs/otherModels/ML-IKH/ML_IKH.C
+ SOURCE += constitutiveEqs/otherModels/sPTT-IKH/sPTT_IKH.C
+ SOURCE += constitutiveEqs/otherModels/RRM/RRM.C
+ SOURCE += constitutiveEqs/otherModels/VCM/VCM.C
+ SOURCE += constitutiveEqs/otherModels/BMP/BMP.C
+ SOURCE += constitutiveEqs/otherModels/BMP/BMPLog/BMPLog.C
+  
+SOURCE += constitutiveTwoPhaseMixture/constitutiveTwoPhaseMixture.C
+SOURCE += immiscibleConstitutiveTwoPhaseMixture/immiscibleConstitutiveTwoPhaseMixture.C
+
+LIB = $(FOAM_USER_LIBBIN)/libconstitutiveEquations

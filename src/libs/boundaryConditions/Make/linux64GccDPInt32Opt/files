@@ -1,0 +1,19 @@
+SOURCE += linearExtrapolation/linearExtrapolationFvPatchFields.C
+SOURCE += navierSlip/navierSlipFvPatchVectorField.C
+
+SOURCE += zeroIonicFlux/zeroIonicFluxFvPatchScalarField.C
+ 
+SOURCE += boltzmannEquilibrium/boltzmannEquilibriumFvPatchScalarField.C
+
+SOURCE += slipSmoluchowski/slipSmoluchowskiFvPatchVectorField.C
+SOURCE += slipSigmaDependent/slipSigmaDependentFvPatchVectorField.C
+SOURCE += slipSigma/slipSigmaFvPatchVectorField.C
+
+SOURCE += inducedPotential/inducedPotentialFvPatchScalarField.C
+
+SOURCE += heatFlux/heatFluxFvPatchScalarField.C
+
+SOURCE += poiseuilleVelocity/poiseuilleVelocityFvPatchVectorField.C
+
+
+LIB = $(FOAM_USER_LIBBIN)/libBCRheoTool

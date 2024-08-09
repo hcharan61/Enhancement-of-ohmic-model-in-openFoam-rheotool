@@ -1,0 +1,1 @@
+../thermoModels/fluidThermoMixture/isotropicMixture/isotropicMixture.H

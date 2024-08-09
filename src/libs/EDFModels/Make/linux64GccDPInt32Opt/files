@@ -1,0 +1,16 @@
+SOURCE += EDFModel/EDFModel.C
+
+SOURCE += models/EDFEquations/EDFEquation.C
+SOURCE += models/EDFEquations/newEDFEquation.C
+
+SOURCE += models/DebyeHuckel/DebyeHuckel.C
+SOURCE += models/PoissonBoltzmann/PoissonBoltzmann.C
+SOURCE += models/NernstPlanck/NernstPlanck.C
+SOURCE += models/slipSmoluchowski/slipSmoluchowski.C
+SOURCE += models/noModel/noModel.C
+
+SOURCE += models/NernstPlanck/NernstPlanckCoupled/NernstPlanckCoupled.C
+ 
+SOURCE += models/Ohmic/Ohmic.C
+SOURCE += models/myOhmic/myOhmic.C
+LIB = $(FOAM_USER_LIBBIN)/libEDFModels
