@@ -1,0 +1,17 @@
+MIT License
+Copyright (c) 2024 Sai Hari Charan Reddy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this myOhmic folder and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+This repository includes the `myOhmic` library, developed by Sai Hari Charan Reddy in 2024, which is designed to work with OpenFOAM. The rest of the code and tools in this repository are part of the OpenFOAM framework and are attributed to the original OpenFOAM developers and contributors.
+
+Please note that while the entire OpenFOAM package is included for convenience, the specific contributions made by Sai Hari Charan Reddy are limited to the `myOhmic` library.
+
+## License
+
+The `myOhmic` library is licensed under the MIT License. Please refer to the `LICENSE` file for more details.
+
+## Attribution
+
+The OpenFOAM code included in this repository is under its own licensing terms, which can be found in the documentation provided by the OpenFOAM project. For more information, visit the [OpenFOAM website](https://www.openfoam.com/).
